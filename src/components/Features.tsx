@@ -153,23 +153,23 @@ const Features = () => {
                     `}>
                       <feature.icon className={`
                         h-6 w-6 
-                        ${activeFeature === index ? 'text-white' : 'text-primary'}
+                        ${activeFeature === index ? 'text-primary-dark' : 'text-primary'}
                       `} />
                     </div>
                     <div className="flex-1">
-                      <h3 className={`text-xl font-semibold mb-2 ${activeFeature === index ? 'text-white' : 'text-gray-800'}`}>
+                      <h3 className={`text-xl font-semibold mb-2 ${activeFeature === index ? 'text-primary-dark' : 'text-gray-700'}`}>
                         {feature.title}
                       </h3>
-                      <p className={`${activeFeature === index ? 'text-white/90' : 'text-gray-600'}`}>
+                      <p className={`${activeFeature === index ? 'text-primary-dark/90' : 'text-gray-600'}`}>
                         {feature.description}
                       </p>
                       
                       {/* Expandable details only for active feature */}
                       {activeFeature === index && (
-                        <div className="mt-4 pl-4 border-l-2 border-white/30 space-y-2 animate-fade-in">
+                        <div className="mt-4 pl-4 border-l-2 border-primary-dark/40 space-y-2 animate-fade-in">
                           {feature.details.map((detail, idx) => (
-                            <div key={idx} className="flex items-center gap-2 text-white/90">
-                              <ChevronRight className="h-4 w-4 text-white" />
+                            <div key={idx} className="flex items-center gap-2 text-primary-dark">
+                              <ChevronRight className="h-4 w-4 text-primary-dark" />
                               <span>{detail}</span>
                             </div>
                           ))}

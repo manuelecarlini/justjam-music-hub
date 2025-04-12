@@ -81,7 +81,7 @@ const MusicianShowcase = () => {
         </div>
 
         {/* Feature Content */}
-        <div className="mt-12 relative">
+        <div className="mt-12 relative min-h-[600px]">
           {features.map((feature) => (
             <div 
               key={feature.id}
@@ -97,7 +97,7 @@ const MusicianShowcase = () => {
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
                       <feature.icon size={32} className="text-primary" />
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4">{feature.title}</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-primary-dark">{feature.title}</h3>
                     <p className="text-lg text-gray-600 mb-8">{feature.description}</p>
                     
                     <div className="grid grid-cols-1 gap-4">
@@ -109,7 +109,7 @@ const MusicianShowcase = () => {
                           <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
                             <span className="text-primary font-semibold">{idx + 1}</span>
                           </div>
-                          <span className="text-gray-800 font-medium">{highlight}</span>
+                          <span className="text-gray-700 font-medium">{highlight}</span>
                         </div>
                       ))}
                     </div>

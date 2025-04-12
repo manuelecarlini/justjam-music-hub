@@ -55,7 +55,7 @@ const Header = () => {
 
         {/* Mobile menu button */}
         <button 
-          className="md:hidden text-gray-800 hover:text-primary"
+          className="md:hidden text-primary hover:text-primary-dark"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -73,7 +73,7 @@ const Header = () => {
               smooth={true}
               offset={-80}
               duration={500}
-              className="py-3 text-gray-800 hover:text-primary font-medium border-b border-gray-100 cursor-pointer"
+              className="py-3 text-primary-dark hover:text-primary font-medium border-b border-gray-100 cursor-pointer"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
@@ -84,7 +84,7 @@ const Header = () => {
               smooth={true}
               offset={-80}
               duration={500}
-              className="py-3 text-gray-800 hover:text-primary font-medium border-b border-gray-100 cursor-pointer"
+              className="py-3 text-primary-dark hover:text-primary font-medium border-b border-gray-100 cursor-pointer"
               onClick={() => setIsMenuOpen(false)}
             >
               Features
@@ -95,7 +95,7 @@ const Header = () => {
               smooth={true}
               offset={-80}
               duration={500}
-              className="py-3 text-gray-800 hover:text-primary font-medium border-b border-gray-100 cursor-pointer"
+              className="py-3 text-primary-dark hover:text-primary font-medium border-b border-gray-100 cursor-pointer"
               onClick={() => setIsMenuOpen(false)}
             >
               How It Works
@@ -106,7 +106,7 @@ const Header = () => {
               smooth={true}
               offset={-80}
               duration={500}
-              className="py-3 text-gray-800 hover:text-primary font-medium border-b border-gray-100 cursor-pointer"
+              className="py-3 text-primary-dark hover:text-primary font-medium border-b border-gray-100 cursor-pointer"
               onClick={() => setIsMenuOpen(false)}
             >
               Testimonials

@@ -58,7 +58,7 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans font-semibold;
+    @apply font-sans font-semibold text-primary-dark;
   }
 }
 
@@ -80,17 +80,17 @@
   }
 
   .phone-mockup {
-    @apply relative rounded-[2.5rem] border-[14px] border-gray-900 overflow-hidden shadow-xl transform hover:scale-105 transition-all duration-500;
+    @apply relative rounded-[2.5rem] border-[8px] border-gray-900 overflow-hidden shadow-xl transform hover:scale-105 transition-all duration-500;
   }
   
   .phone-mockup::before {
     content: '';
-    @apply absolute top-0 w-36 h-6 bg-gray-900 left-1/2 -translate-x-1/2 rounded-b-3xl z-10;
+    @apply absolute top-0 w-24 h-4 bg-gray-900 left-1/2 -translate-x-1/2 rounded-b-3xl z-10;
   }
   
   .phone-mockup::after {
     content: '';
-    @apply absolute bottom-2 w-24 h-1 bg-gray-700 left-1/2 -translate-x-1/2 rounded-full z-10;
+    @apply absolute bottom-2 w-16 h-1 bg-gray-700 left-1/2 -translate-x-1/2 rounded-full z-10;
   }
   
   .glass-card {

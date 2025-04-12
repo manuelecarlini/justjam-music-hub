@@ -21,7 +21,7 @@ const Hero = () => {
             <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full mb-6 font-medium tracking-wide">
               Made by musicians, for musicians
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-primary-dark">
               Play, Learn, &<br />
               <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">Just Jam</span> Along
             </h1>
@@ -53,34 +53,37 @@ const Hero = () => {
           </div>
           
           <div className="flex justify-center lg:justify-end relative h-[500px]">
-            {/* Main app screenshot with phone mockup */}
-            <div className="phone-mockup bg-black w-64 md:w-72 absolute z-30 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <img 
-                src="/lovable-uploads/5266fb37-dcce-46e6-84c7-b7e2ae86688d.png" 
-                alt="JustJam App Interface" 
-                className="h-full w-full object-cover rounded-[2rem]"
-              />
-            </div>
-            
-            {/* Secondary screenshot positioned to the left */}
-            <div className="absolute left-0 top-1/4 w-48 transform -rotate-12 animate-float z-20" style={{animationDelay: '1s'}}>
-              <div className="phone-mockup bg-black w-full">
+            {/* Phone display arrangement */}
+            <div className="relative w-full h-full">
+              {/* Main app screenshot with phone mockup - centered */}
+              <div className="phone-mockup bg-black w-64 md:w-72 absolute z-30 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                 <img 
-                  src="/lovable-uploads/3bda4cc1-bd68-46ac-bc26-3e7b4fd8ab45.png" 
-                  alt="JustJam Metronome Feature" 
+                  src="/lovable-uploads/5266fb37-dcce-46e6-84c7-b7e2ae86688d.png" 
+                  alt="JustJam App Interface" 
                   className="h-full w-full object-cover rounded-[2rem]"
                 />
               </div>
-            </div>
-            
-            {/* Third screenshot positioned to the right */}
-            <div className="absolute right-0 bottom-1/4 w-48 transform rotate-12 animate-float z-10" style={{animationDelay: '2s'}}>
-              <div className="phone-mockup bg-black w-full">
-                <img 
-                  src="/lovable-uploads/628c7bb3-e6fc-43e6-9415-3420545c348d.png" 
-                  alt="JustJam Tuner Feature" 
-                  className="h-full w-full object-cover rounded-[2rem]"
-                />
+              
+              {/* Secondary screenshot positioned to the left */}
+              <div className="absolute left-[5%] top-[20%] w-48 transform -rotate-12 animate-float z-20" style={{animationDelay: '1s'}}>
+                <div className="phone-mockup bg-black w-full">
+                  <img 
+                    src="/lovable-uploads/3bda4cc1-bd68-46ac-bc26-3e7b4fd8ab45.png" 
+                    alt="JustJam Metronome Feature" 
+                    className="h-full w-full object-cover rounded-[2rem]"
+                  />
+                </div>
+              </div>
+              
+              {/* Third screenshot positioned to the right */}
+              <div className="absolute right-[5%] bottom-[20%] w-48 transform rotate-12 animate-float z-10" style={{animationDelay: '2s'}}>
+                <div className="phone-mockup bg-black w-full">
+                  <img 
+                    src="/lovable-uploads/628c7bb3-e6fc-43e6-9415-3420545c348d.png" 
+                    alt="JustJam Tuner Feature" 
+                    className="h-full w-full object-cover rounded-[2rem]"
+                  />
+                </div>
               </div>
             </div>
             
