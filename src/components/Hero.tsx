@@ -23,7 +23,7 @@ const Hero = () => {
             </span>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
               Play, Learn, &<br />
-              <span className="text-gradient">Just Jam</span> Along
+              <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">Just Jam</span> Along
             </h1>
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-xl mx-auto lg:mx-0">
               Your ultimate music companion. Practice with backing tracks, master your timing, and tune perfectly. 
@@ -52,43 +52,41 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              {/* Main app screenshot with phone mockup */}
-              <div className="phone-mockup bg-black w-64 md:w-72">
+          <div className="flex justify-center lg:justify-end relative h-[500px]">
+            {/* Main app screenshot with phone mockup */}
+            <div className="phone-mockup bg-black w-64 md:w-72 absolute z-30 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <img 
+                src="/lovable-uploads/5266fb37-dcce-46e6-84c7-b7e2ae86688d.png" 
+                alt="JustJam App Interface" 
+                className="h-full w-full object-cover rounded-[2rem]"
+              />
+            </div>
+            
+            {/* Secondary screenshot positioned to the left */}
+            <div className="absolute left-0 top-1/4 w-48 transform -rotate-12 animate-float z-20" style={{animationDelay: '1s'}}>
+              <div className="phone-mockup bg-black w-full">
                 <img 
-                  src="/lovable-uploads/5266fb37-dcce-46e6-84c7-b7e2ae86688d.png" 
-                  alt="JustJam App Interface" 
-                  className="h-full w-full object-cover"
+                  src="/lovable-uploads/3bda4cc1-bd68-46ac-bc26-3e7b4fd8ab45.png" 
+                  alt="JustJam Metronome Feature" 
+                  className="h-full w-full object-cover rounded-[2rem]"
                 />
               </div>
-              
-              {/* Secondary screenshot positioned floating behind */}
-              <div className="absolute -left-16 top-1/4 w-48 transform -rotate-12 animate-float" style={{animationDelay: '1s', zIndex: '-1'}}>
-                <div className="phone-mockup bg-black w-full">
-                  <img 
-                    src="/lovable-uploads/3bda4cc1-bd68-46ac-bc26-3e7b4fd8ab45.png" 
-                    alt="JustJam Metronome Feature" 
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </div>
-              
-              {/* Third screenshot positioned floating behind */}
-              <div className="absolute -right-12 bottom-1/4 w-48 transform rotate-12 animate-float" style={{animationDelay: '2s', zIndex: '-1'}}>
-                <div className="phone-mockup bg-black w-full">
-                  <img 
-                    src="/lovable-uploads/628c7bb3-e6fc-43e6-9415-3420545c348d.png" 
-                    alt="JustJam Tuner Feature" 
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute -bottom-10 -right-10 w-20 h-20 rounded-full bg-primary/20 blur-xl"></div>
-              <div className="absolute -top-5 -left-5 w-16 h-16 rounded-full bg-accent/20 blur-xl"></div>
             </div>
+            
+            {/* Third screenshot positioned to the right */}
+            <div className="absolute right-0 bottom-1/4 w-48 transform rotate-12 animate-float z-10" style={{animationDelay: '2s'}}>
+              <div className="phone-mockup bg-black w-full">
+                <img 
+                  src="/lovable-uploads/628c7bb3-e6fc-43e6-9415-3420545c348d.png" 
+                  alt="JustJam Tuner Feature" 
+                  className="h-full w-full object-cover rounded-[2rem]"
+                />
+              </div>
+            </div>
+            
+            {/* Decorative elements */}
+            <div className="absolute -bottom-10 -right-10 w-20 h-20 rounded-full bg-primary/20 blur-xl"></div>
+            <div className="absolute -top-5 -left-5 w-16 h-16 rounded-full bg-accent/20 blur-xl"></div>
           </div>
         </div>
         
