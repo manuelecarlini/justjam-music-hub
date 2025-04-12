@@ -1,5 +1,5 @@
 
-import { Music, Settings, MusicNote, Microscope, BarChart4, Users } from 'lucide-react';
+import { Music, Settings, Music2, Microscope, BarChart4, Users } from 'lucide-react';
 
 const FeatureCard = ({ icon: Icon, title, description, className = "" }) => {
   return (
@@ -21,7 +21,7 @@ const Features = () => {
       description: "Access hundreds of backing tracks filterable by BPM, key, and style to match your practice needs.",
     },
     {
-      icon: MusicNote,
+      icon: Music2,
       title: "Live Chord Progressions",
       description: "See real-time chord progressions, scales, and triads as the music plays to improve your understanding.",
     },
