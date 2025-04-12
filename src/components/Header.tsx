@@ -24,20 +24,11 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const menuItems = [
-    { name: 'Home', to: 'home' },
-    { name: 'Features', to: 'features' },
-    { name: 'How It Works', to: 'how-it-works' },
-    { name: 'Testimonials', to: 'testimonials' },
-    { name: 'Download', to: 'download' },
-    { name: 'Contact', to: 'contact' }
-  ];
-
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' 
+          ? 'bg-white/80 backdrop-blur-md shadow-sm py-3' 
           : 'bg-transparent py-5'
       }`}
     >
@@ -48,23 +39,6 @@ const Header = () => {
           </a>
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {menuItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.to}
-              spy={true}
-              smooth={true}
-              offset={-80}
-              duration={500}
-              className="text-gray-800 hover:text-primary font-medium cursor-pointer transition-colors"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
-
         {/* Download Button (Desktop) */}
         <div className="hidden md:block">
           <Link
@@ -73,7 +47,7 @@ const Header = () => {
             smooth={true}
             offset={-80}
             duration={500}
-            className="app-button bg-primary hover:bg-primary-dark cursor-pointer"
+            className="app-button bg-primary hover:bg-primary-dark cursor-pointer px-5 py-2 text-sm"
           >
             Download App
           </Link>
@@ -83,6 +57,7 @@ const Header = () => {
         <button 
           className="md:hidden text-gray-800 hover:text-primary"
           onClick={toggleMenu}
+          aria-label="Toggle menu"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -90,22 +65,52 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-xl absolute top-full left-0 right-0 animate-slide-down">
+        <div className="md:hidden bg-white/95 backdrop-blur-md shadow-xl absolute top-full left-0 right-0 animate-slide-down">
           <nav className="flex flex-col py-4 px-4">
-            {menuItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.to}
-                spy={true}
-                smooth={true}
-                offset={-80}
-                duration={500}
-                className="py-3 text-gray-800 hover:text-primary font-medium border-b border-gray-100 cursor-pointer"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+            <Link
+              to="home"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={500}
+              className="py-3 text-gray-800 hover:text-primary font-medium border-b border-gray-100 cursor-pointer"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              to="features"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={500}
+              className="py-3 text-gray-800 hover:text-primary font-medium border-b border-gray-100 cursor-pointer"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Features
+            </Link>
+            <Link
+              to="how-it-works"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={500}
+              className="py-3 text-gray-800 hover:text-primary font-medium border-b border-gray-100 cursor-pointer"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              How It Works
+            </Link>
+            <Link
+              to="testimonials"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={500}
+              className="py-3 text-gray-800 hover:text-primary font-medium border-b border-gray-100 cursor-pointer"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Testimonials
+            </Link>
             <Link
               to="download"
               spy={true}

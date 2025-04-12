@@ -4,28 +4,40 @@ import { Link } from 'react-scroll';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20 pb-16 relative overflow-hidden">
-      {/* Background gradients */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-primary/5 z-0"></div>
-      <div className="absolute -top-40 -left-40 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl"></div>
-      <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-accent/10 rounded-full filter blur-3xl"></div>
+    <section id="home" className="min-h-screen relative overflow-hidden flex items-center">
+      {/* Background with layered design */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#f2f8f6] via-white to-[#e8f5f1] z-0"></div>
+      <div className="absolute top-0 right-0 w-full h-full bg-pattern-dots opacity-30 z-0"></div>
       
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
+      {/* Abstract shapes */}
+      <div className="absolute top-20 right-10 w-80 h-80 rounded-full bg-primary/5 blur-3xl"></div>
+      <div className="absolute bottom-20 left-10 w-60 h-60 rounded-full bg-accent/5 blur-3xl"></div>
+      <div className="absolute top-40 left-20 w-24 h-24 rounded-full bg-primary/10 animate-float"></div>
+      <div className="absolute bottom-40 right-40 w-32 h-32 rounded-full bg-accent/10 animate-float" style={{animationDelay: '2s'}}></div>
+      
+      <div className="container mx-auto px-4 md:px-6 pt-24 pb-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="text-center lg:text-left animate-slide-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Play, Learn &<br />
+          <div className="text-center lg:text-left">
+            <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full mb-6 font-medium tracking-wide">
+              Made by musicians, for musicians
+            </span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+              Play, Learn, &<br />
               <span className="text-gradient">Just Jam</span> Along
             </h1>
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-xl mx-auto lg:mx-0">
-              The ultimate music companion app for musicians of all levels. Practice with backing tracks, master your timing with the metronome, and tune your instruments perfectly. All completely free, made by music lovers for music lovers.
+              Your ultimate music companion. Practice with backing tracks, master your timing, and tune perfectly. 
+              All completely free, with no ads.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a 
                 href="#download" 
-                className="app-button bg-primary hover:bg-primary-dark flex items-center justify-center"
+                className="app-button bg-primary hover:bg-primary-dark flex items-center justify-center group"
               >
                 Download Free
+                <svg className="ml-2 group-hover:translate-x-1 transition-transform" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </a>
               <Link 
                 to="features" 
@@ -33,40 +45,54 @@ const Hero = () => {
                 smooth={true} 
                 offset={-80} 
                 duration={500}
-                className="app-button bg-accent hover:bg-accent/90 text-accent-foreground flex items-center justify-center cursor-pointer"
+                className="app-button bg-white text-gray-800 border border-gray-200 hover:bg-gray-50 flex items-center justify-center cursor-pointer"
               >
                 Explore Features
               </Link>
             </div>
           </div>
           
-          <div className="flex justify-center animate-float">
+          <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              {/* Main app screenshot */}
-              <img 
-                src="/lovable-uploads/5266fb37-dcce-46e6-84c7-b7e2ae86688d.png" 
-                alt="JustJam App Interface" 
-                className="h-auto max-w-full w-64 md:w-72 rounded-3xl shadow-2xl z-20 relative border-4 border-white"
-              />
+              {/* Main app screenshot with phone mockup */}
+              <div className="phone-mockup bg-black w-64 md:w-72">
+                <img 
+                  src="/lovable-uploads/5266fb37-dcce-46e6-84c7-b7e2ae86688d.png" 
+                  alt="JustJam App Interface" 
+                  className="h-full w-full object-cover"
+                />
+              </div>
               
-              {/* Secondary screenshot positioned to the left and behind */}
-              <img 
-                src="/lovable-uploads/3bda4cc1-bd68-46ac-bc26-3e7b4fd8ab45.png" 
-                alt="JustJam Metronome Feature" 
-                className="absolute -left-20 top-20 h-auto w-48 md:w-56 rounded-3xl shadow-xl z-10 rotate-[-8deg] border-4 border-white"
-              />
+              {/* Secondary screenshot positioned floating behind */}
+              <div className="absolute -left-16 top-1/4 w-48 transform -rotate-12 animate-float" style={{animationDelay: '1s', zIndex: '-1'}}>
+                <div className="phone-mockup bg-black w-full">
+                  <img 
+                    src="/lovable-uploads/3bda4cc1-bd68-46ac-bc26-3e7b4fd8ab45.png" 
+                    alt="JustJam Metronome Feature" 
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
               
-              {/* Third screenshot positioned to the right and behind */}
-              <img 
-                src="/lovable-uploads/628c7bb3-e6fc-43e6-9415-3420545c348d.png" 
-                alt="JustJam Tuner Feature" 
-                className="absolute -right-16 bottom-20 h-auto w-48 md:w-56 rounded-3xl shadow-xl z-10 rotate-[8deg] border-4 border-white"
-              />
+              {/* Third screenshot positioned floating behind */}
+              <div className="absolute -right-12 bottom-1/4 w-48 transform rotate-12 animate-float" style={{animationDelay: '2s', zIndex: '-1'}}>
+                <div className="phone-mockup bg-black w-full">
+                  <img 
+                    src="/lovable-uploads/628c7bb3-e6fc-43e6-9415-3420545c348d.png" 
+                    alt="JustJam Tuner Feature" 
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute -bottom-10 -right-10 w-20 h-20 rounded-full bg-primary/20 blur-xl"></div>
+              <div className="absolute -top-5 -left-5 w-16 h-16 rounded-full bg-accent/20 blur-xl"></div>
             </div>
           </div>
         </div>
         
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <Link 
             to="features" 
             spy={true} 
