@@ -1,6 +1,5 @@
-
 import { 
-  Music, 
+  Sparkles,
   Settings, 
   Music2, 
   Microscope, 
@@ -11,12 +10,12 @@ import {
 import { useState } from 'react';
 
 const featureImages = [
-  "/lovable-uploads/5266fb37-dcce-46e6-84c7-b7e2ae86688d.png", // Backing tracks
-  "/lovable-uploads/3bda4cc1-bd68-46ac-bc26-3e7b4fd8ab45.png", // Metronome
-  "/lovable-uploads/628c7bb3-e6fc-43e6-9415-3420545c348d.png", // Tuner
-  "/lovable-uploads/5631dfb9-28ee-4d63-b4c6-5f335251978b.png", // Theory tools
-  "/lovable-uploads/d6cb093b-52a1-44b3-8ca8-93a8119d2092.png", // Chord progresions
-  "/lovable-uploads/bbf1e594-c865-4fd1-a356-f91332e86d58.png", // Community
+  "/lovable-uploads/5266fb37-dcce-46e6-84c7-b7e2ae86688d.png",
+  "/lovable-uploads/3bda4cc1-bd68-46ac-bc26-3e7b4fd8ab45.png",
+  "/lovable-uploads/628c7bb3-e6fc-43e6-9415-3420545c348d.png",
+  "/lovable-uploads/5631dfb9-28ee-4d63-b4c6-5f335251978b.png",
+  "/lovable-uploads/d6cb093b-52a1-44b3-8ca8-93a8119d2092.png",
+  "/lovable-uploads/bbf1e594-c865-4fd1-a356-f91332e86d58.png",
 ];
 
 const Features = () => {
@@ -24,25 +23,25 @@ const Features = () => {
 
   const features = [
     {
-      icon: Music,
-      title: "Extensive Backing Tracks",
-      description: "Access hundreds of backing tracks filterable by BPM, key, and style to match your practice needs.",
+      icon: Sparkles,
+      title: "AI-Powered Backing Tracks",
+      description: "Access hundreds of AI-generated backing tracks that adapt to your style and skill level.",
       color: "from-primary/20 to-primary/40",
       details: [
-        "Filter by genre, mood, and instrument",
-        "Adjust tempo without changing pitch",
-        "Bookmark your favorites for quick access"
+        "AI generates unique tracks based on your preferences",
+        "Intelligent style matching with your playing",
+        "Real-time track adaptation to your tempo"
       ]
     },
     {
       icon: Music2,
-      title: "Live Chord Progressions",
-      description: "See real-time chord progressions, scales, and triads as the music plays to improve your understanding.",
+      title: "Smart Chord Progressions",
+      description: "AI analyzes and suggests chord progressions that perfectly complement your playing style.",
       color: "from-accent/20 to-accent/40",
       details: [
-        "Visual chord diagrams for guitar and piano",
-        "Scale suggestions that match the progression",
-        "Slow down difficult sections to master them"
+        "AI-powered chord suggestions",
+        "Dynamic progression adaptation",
+        "Personalized learning paths"
       ]
     },
     {
@@ -98,89 +97,65 @@ const Features = () => {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full mb-4 font-medium tracking-wide">Features</span>
+          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full mb-4 font-medium tracking-wide">AI-Powered Features</span>
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Everything You Need to <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">Master Your Music</span></h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            JustJam combines powerful tools designed to help you practice, learn, and grow as a musician - all in one free app.
+            Experience the power of AI-driven music tools designed to enhance your practice and creativity.
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12 items-center mb-20">
-          {/* Feature Showcase - Interactive Phone Display */}
-          <div className="w-full lg:w-1/2 order-2 lg:order-1">
-            <div className="phone-mockup bg-black w-full max-w-xs mx-auto">
-              <img 
-                src={featureImages[activeFeature]} 
-                alt={features[activeFeature].title} 
-                className="h-full w-full object-cover rounded-[2rem]"
-              />
-              
-              {/* Feature indicator dots */}
-              <div className="flex justify-center gap-2 mt-6">
-                {features.map((_, index) => (
-                  <button 
-                    key={index} 
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      activeFeature === index ? 'bg-primary scale-125' : 'bg-gray-300'
-                    }`}
-                    onClick={() => setActiveFeature(index)}
-                    aria-label={`View feature ${index + 1}`}
-                  />
-                ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          {features.map((feature, index) => (
+            <div 
+              key={index}
+              className={`
+                rounded-xl transition-all duration-300 cursor-pointer overflow-hidden
+                ${activeFeature === index ? 'scale-105' : 'hover:scale-102'}
+              `}
+              onClick={() => setActiveFeature(index)}
+            >
+              <div className="relative aspect-video mb-4">
+                <img
+                  src={featureImages[index]}
+                  alt={feature.title}
+                  className="w-full h-full object-cover rounded-xl"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-60 rounded-xl`}></div>
               </div>
-            </div>
-          </div>
-          
-          {/* Interactive Feature List */}
-          <div className="w-full lg:w-1/2 order-1 lg:order-2">
-            <div className="space-y-4">
-              {features.map((feature, index) => (
-                <div 
-                  key={index}
-                  className={`
-                    p-6 rounded-xl transition-all duration-300 cursor-pointer
-                    ${activeFeature === index ? 
-                      `bg-gradient-to-br ${feature.color} shadow-lg scale-105` : 
-                      'bg-white/50 hover:bg-white/80 shadow'
-                    }
-                  `}
-                  onClick={() => setActiveFeature(index)}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className={`
-                      h-12 w-12 rounded-lg flex items-center justify-center 
-                      ${activeFeature === index ? 'bg-white/30' : 'bg-primary/10'}
-                    `}>
-                      <feature.icon className={`
-                        h-6 w-6 
-                        ${activeFeature === index ? 'text-primary-dark' : 'text-primary'}
-                      `} />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className={`text-xl font-semibold mb-2 ${activeFeature === index ? 'text-primary-dark' : 'text-gray-700'}`}>
-                        {feature.title}
-                      </h3>
-                      <p className={`${activeFeature === index ? 'text-primary-dark/90' : 'text-gray-600'}`}>
-                        {feature.description}
-                      </p>
-                      
-                      {/* Expandable details only for active feature */}
-                      {activeFeature === index && (
-                        <div className="mt-4 pl-4 border-l-2 border-primary-dark/40 space-y-2 animate-fade-in">
-                          {feature.details.map((detail, idx) => (
-                            <div key={idx} className="flex items-center gap-2 text-primary-dark">
-                              <ChevronRight className="h-4 w-4 text-primary-dark" />
-                              <span>{detail}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+              
+              <div className={`p-6 bg-white/90 backdrop-blur-sm rounded-xl border border-gray-100/50 ${
+                activeFeature === index ? 'shadow-lg border-primary/20' : 'shadow hover:shadow-md'
+              }`}>
+                <div className="flex items-start gap-4">
+                  <div className={`
+                    h-12 w-12 rounded-lg flex items-center justify-center 
+                    ${activeFeature === index ? 'bg-primary/20' : 'bg-primary/10'}
+                  `}>
+                    <feature.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold mb-2 text-primary-dark">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600">
+                      {feature.description}
+                    </p>
+                    
+                    {activeFeature === index && (
+                      <div className="mt-4 pl-4 border-l-2 border-primary/40 space-y-2 animate-fade-in">
+                        {feature.details.map((detail, idx) => (
+                          <div key={idx} className="flex items-center gap-2 text-primary-dark">
+                            <ChevronRight className="h-4 w-4 text-primary" />
+                            <span>{detail}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
