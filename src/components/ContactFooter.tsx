@@ -70,23 +70,24 @@ const ContactFooter = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
                 <div className="flex flex-wrap gap-4">
-                  <a href="#" className="w-10 h-10 rounded-full bg-[#E4405F] flex items-center justify-center text-white hover:opacity-90 transition-opacity">
+                  <a href="#" className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white hover:opacity-90 transition-opacity">
                     <Instagram size={20} />
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white hover:opacity-90 transition-opacity">
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M13.5 1.5c5.788 0 10.5 4.712 10.5 10.5S19.288 22.5 13.5 22.5h-3c-5.788 0-10.5-4.712-10.5-10.5S4.712 1.5 10.5 1.5h3zM12 7.5c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5z"/>
+                  <a href="#" className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-white hover:opacity-90 transition-opacity">
+                    <svg className="w-5 h-5" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M9.05,11.95c-2.6,0-4.7-2.1-4.7-4.7s2.1-4.7,4.7-4.7s4.7,2.1,4.7,4.7S11.65,11.95,9.05,11.95z M9.05,3.55 c-2,0-3.7,1.7-3.7,3.7s1.7,3.7,3.7,3.7s3.7-1.7,3.7-3.7S11.05,3.55,9.05,3.55z" />
+                      <path d="M6.25,13.85c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S9.55,13.85,6.25,13.85z M6.25,2.85 c-2.8,0-5,2.2-5,5s2.2,5,5,5s5-2.2,5-5S9.05,2.85,6.25,2.85z" />
                     </svg>
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-[#FF0000] flex items-center justify-center text-white hover:opacity-90 transition-opacity">
+                  <a href="#" className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center text-white hover:opacity-90 transition-opacity">
                     <Youtube size={20} />
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-[#1DA1F2] flex items-center justify-center text-white hover:opacity-90 transition-opacity">
+                  <a href="#" className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-white hover:opacity-90 transition-opacity">
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                     </svg>
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-[#0560FF] flex items-center justify-center text-white hover:opacity-90 transition-opacity">
+                  <a href="#" className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-dark to-primary flex items-center justify-center text-white hover:opacity-90 transition-opacity">
                     <Send size={20} />
                   </a>
                 </div>

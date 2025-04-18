@@ -134,7 +134,7 @@ const Features = () => {
                     <feature.icon className="h-6 w-6 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-2 text-primary-dark">
+                    <h3 className="text-xl font-semibold mb-2 text-primary">
                       {feature.title}
                     </h3>
                     <p className="text-gray-600">
@@ -144,7 +144,7 @@ const Features = () => {
                     {activeFeature === index && (
                       <div className="mt-4 pl-4 border-l-2 border-primary/40 space-y-2 animate-fade-in">
                         {feature.details.map((detail, idx) => (
-                          <div key={idx} className="flex items-center gap-2 text-primary-dark">
+                          <div key={idx} className="flex items-center gap-2 text-primary">
                             <ChevronRight className="h-4 w-4 text-primary" />
                             <span>{detail}</span>
                           </div>
