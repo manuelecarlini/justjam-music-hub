@@ -5,10 +5,10 @@ import {
   Music2, 
   Microscope, 
   BarChart4, 
-  Users, 
-  ChevronRight 
+  Users
 } from 'lucide-react';
 import { useState } from 'react';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const featureImages = [
   "/lovable-uploads/5266fb37-dcce-46e6-84c7-b7e2ae86688d.png",
@@ -98,65 +98,76 @@ const Features = () => {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full mb-4 font-medium tracking-wide">AI-Powered Features</span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Everything You Need to <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">Master Your Music</span></h2>
+          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full mb-4 font-medium tracking-wide">
+            AI-Powered Features
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            Everything You Need to <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">Master Your Music</span>
+          </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Experience the power of AI-driven music tools designed to enhance your practice and creativity.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-          {features.map((feature, index) => (
-            <div 
-              key={index}
-              className={`
-                rounded-xl transition-all duration-300 cursor-pointer overflow-hidden
-                ${activeFeature === index ? 'scale-105' : 'hover:scale-102'}
-              `}
-              onClick={() => setActiveFeature(index)}
-            >
-              <div className="relative aspect-video mb-4">
-                <img
-                  src={featureImages[index]}
-                  alt={feature.title}
-                  className="w-full h-full object-cover rounded-xl"
-                />
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-60 rounded-xl`}></div>
-              </div>
-              
-              <div className={`p-6 bg-white/90 backdrop-blur-sm rounded-xl border border-gray-100/50 ${
-                activeFeature === index ? 'shadow-lg border-primary/20' : 'shadow hover:shadow-md'
-              }`}>
-                <div className="flex items-start gap-4">
-                  <div className={`
-                    h-12 w-12 rounded-lg flex items-center justify-center 
-                    ${activeFeature === index ? 'bg-primary/20' : 'bg-primary/10'}
-                  `}>
-                    <feature.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-2 text-primary">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-600">
-                      {feature.description}
-                    </p>
-                    
-                    {activeFeature === index && (
-                      <div className="mt-4 pl-4 border-l-2 border-primary/40 space-y-2 animate-fade-in">
-                        {feature.details.map((detail, idx) => (
-                          <div key={idx} className="flex items-center gap-2 text-primary">
-                            <ChevronRight className="h-4 w-4 text-primary" />
-                            <span>{detail}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Feature List */}
+          <div className="space-y-8">
+            {features.map((feature, index) => (
+              <button
+                key={index}
+                className={`w-full text-left transition-all duration-300 ${
+                  activeFeature === index ? 'scale-105' : 'hover:scale-102'
+                }`}
+                onClick={() => setActiveFeature(index)}
+              >
+                <div className={`p-6 rounded-xl bg-white/90 backdrop-blur-sm border ${
+                  activeFeature === index ? 'border-primary shadow-lg' : 'border-gray-100/50 hover:border-primary/20'
+                }`}>
+                  <div className="flex gap-4">
+                    <div className={`
+                      h-12 w-12 rounded-lg flex items-center justify-center shrink-0
+                      ${activeFeature === index ? 'bg-primary/20' : 'bg-primary/10'}
+                    `}>
+                      <feature.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2 text-primary">{feature.title}</h3>
+                      <p className="text-gray-600">{feature.description}</p>
+                      
+                      {activeFeature === index && (
+                        <div className="mt-4 pl-4 border-l-2 border-primary/40 space-y-2 animate-fade-in">
+                          {feature.details.map((detail, idx) => (
+                            <div key={idx} className="flex items-center gap-2 text-primary">
+                              <span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                              <span>{detail}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Feature Image */}
+          <div className="lg:sticky lg:top-24">
+            <div className="relative w-full max-w-md mx-auto">
+              <div className="relative aspect-[9/16] rounded-xl overflow-hidden">
+                <AspectRatio ratio={9/16} className="bg-muted">
+                  <img
+                    src={featureImages[activeFeature]}
+                    alt={features[activeFeature].title}
+                    className="w-full h-full object-cover transition-all duration-300"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${features[activeFeature].color} mix-blend-overlay`}></div>
+                </AspectRatio>
               </div>
+              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-primary rounded-xl transform rotate-12 -z-10"></div>
+              <div className="absolute -left-4 -top-4 w-16 h-16 bg-accent rounded-xl transform -rotate-12 -z-10"></div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
@@ -164,3 +175,4 @@ const Features = () => {
 };
 
 export default Features;
+
