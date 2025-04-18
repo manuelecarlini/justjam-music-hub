@@ -1,22 +1,22 @@
 
 import { 
-  Sparkles,
+  Music, 
   Settings, 
   Music2, 
   Microscope, 
   BarChart4, 
-  Users
+  Users, 
+  ChevronRight 
 } from 'lucide-react';
 import { useState } from 'react';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const featureImages = [
-  "/lovable-uploads/5266fb37-dcce-46e6-84c7-b7e2ae86688d.png",
-  "/lovable-uploads/3bda4cc1-bd68-46ac-bc26-3e7b4fd8ab45.png",
-  "/lovable-uploads/628c7bb3-e6fc-43e6-9415-3420545c348d.png",
-  "/lovable-uploads/5631dfb9-28ee-4d63-b4c6-5f335251978b.png",
-  "/lovable-uploads/d6cb093b-52a1-44b3-8ca8-93a8119d2092.png",
-  "/lovable-uploads/bbf1e594-c865-4fd1-a356-f91332e86d58.png",
+  "/lovable-uploads/5266fb37-dcce-46e6-84c7-b7e2ae86688d.png", // Backing tracks
+  "/lovable-uploads/3bda4cc1-bd68-46ac-bc26-3e7b4fd8ab45.png", // Metronome
+  "/lovable-uploads/628c7bb3-e6fc-43e6-9415-3420545c348d.png", // Tuner
+  "/lovable-uploads/5631dfb9-28ee-4d63-b4c6-5f335251978b.png", // Theory tools
+  "/lovable-uploads/d6cb093b-52a1-44b3-8ca8-93a8119d2092.png", // Chord progresions
+  "/lovable-uploads/bbf1e594-c865-4fd1-a356-f91332e86d58.png", // Community
 ];
 
 const Features = () => {
@@ -24,25 +24,25 @@ const Features = () => {
 
   const features = [
     {
-      icon: Sparkles,
-      title: "AI-Powered Backing Tracks",
-      description: "Access hundreds of AI-generated backing tracks that adapt to your style and skill level.",
+      icon: Music,
+      title: "Extensive Backing Tracks",
+      description: "Access hundreds of backing tracks filterable by BPM, key, and style to match your practice needs.",
       color: "from-primary/20 to-primary/40",
       details: [
-        "AI generates unique tracks based on your preferences",
-        "Intelligent style matching with your playing",
-        "Real-time track adaptation to your tempo"
+        "Filter by genre, mood, and instrument",
+        "Adjust tempo without changing pitch",
+        "Bookmark your favorites for quick access"
       ]
     },
     {
       icon: Music2,
-      title: "Smart Chord Progressions",
-      description: "AI analyzes and suggests chord progressions that perfectly complement your playing style.",
+      title: "Live Chord Progressions",
+      description: "See real-time chord progressions, scales, and triads as the music plays to improve your understanding.",
       color: "from-accent/20 to-accent/40",
       details: [
-        "AI-powered chord suggestions",
-        "Dynamic progression adaptation",
-        "Personalized learning paths"
+        "Visual chord diagrams for guitar and piano",
+        "Scale suggestions that match the progression",
+        "Slow down difficult sections to master them"
       ]
     },
     {
@@ -98,47 +98,78 @@ const Features = () => {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full mb-4 font-medium tracking-wide">
-            AI-Powered Features
-          </span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Everything You Need to <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">Master Your Music</span>
-          </h2>
+          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full mb-4 font-medium tracking-wide">Features</span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Everything You Need to <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">Master Your Music</span></h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Experience the power of AI-driven music tools designed to enhance your practice and creativity.
+            JustJam combines powerful tools designed to help you practice, learn, and grow as a musician - all in one free app.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Feature List */}
-          <div className="space-y-8">
-            {features.map((feature, index) => (
-              <button
-                key={index}
-                className={`w-full text-left transition-all duration-300 ${
-                  activeFeature === index ? 'scale-105' : 'hover:scale-102'
-                }`}
-                onClick={() => setActiveFeature(index)}
-              >
-                <div className={`p-6 rounded-xl bg-white/90 backdrop-blur-sm border ${
-                  activeFeature === index ? 'border-primary shadow-lg' : 'border-gray-100/50 hover:border-primary/20'
-                }`}>
-                  <div className="flex gap-4">
+        <div className="flex flex-col lg:flex-row gap-12 items-center mb-20">
+          {/* Feature Showcase - Interactive Phone Display */}
+          <div className="w-full lg:w-1/2 order-2 lg:order-1">
+            <div className="phone-mockup bg-black w-full max-w-xs mx-auto">
+              <img 
+                src={featureImages[activeFeature]} 
+                alt={features[activeFeature].title} 
+                className="h-full w-full object-cover rounded-[2rem]"
+              />
+              
+              {/* Feature indicator dots */}
+              <div className="flex justify-center gap-2 mt-6">
+                {features.map((_, index) => (
+                  <button 
+                    key={index} 
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      activeFeature === index ? 'bg-primary scale-125' : 'bg-gray-300'
+                    }`}
+                    onClick={() => setActiveFeature(index)}
+                    aria-label={`View feature ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          {/* Interactive Feature List */}
+          <div className="w-full lg:w-1/2 order-1 lg:order-2">
+            <div className="space-y-4">
+              {features.map((feature, index) => (
+                <div 
+                  key={index}
+                  className={`
+                    p-6 rounded-xl transition-all duration-300 cursor-pointer
+                    ${activeFeature === index ? 
+                      `bg-gradient-to-br ${feature.color} shadow-lg scale-105` : 
+                      'bg-white/50 hover:bg-white/80 shadow'
+                    }
+                  `}
+                  onClick={() => setActiveFeature(index)}
+                >
+                  <div className="flex items-start gap-4">
                     <div className={`
-                      h-12 w-12 rounded-lg flex items-center justify-center shrink-0
-                      ${activeFeature === index ? 'bg-primary/20' : 'bg-primary/10'}
+                      h-12 w-12 rounded-lg flex items-center justify-center 
+                      ${activeFeature === index ? 'bg-white/30' : 'bg-primary/10'}
                     `}>
-                      <feature.icon className="h-6 w-6 text-primary" />
+                      <feature.icon className={`
+                        h-6 w-6 
+                        ${activeFeature === index ? 'text-primary-dark' : 'text-primary'}
+                      `} />
                     </div>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2 text-primary">{feature.title}</h3>
-                      <p className="text-gray-600">{feature.description}</p>
+                    <div className="flex-1">
+                      <h3 className={`text-xl font-semibold mb-2 ${activeFeature === index ? 'text-primary-dark' : 'text-gray-700'}`}>
+                        {feature.title}
+                      </h3>
+                      <p className={`${activeFeature === index ? 'text-primary-dark/90' : 'text-gray-600'}`}>
+                        {feature.description}
+                      </p>
                       
+                      {/* Expandable details only for active feature */}
                       {activeFeature === index && (
-                        <div className="mt-4 pl-4 border-l-2 border-primary/40 space-y-2 animate-fade-in">
+                        <div className="mt-4 pl-4 border-l-2 border-primary-dark/40 space-y-2 animate-fade-in">
                           {feature.details.map((detail, idx) => (
-                            <div key={idx} className="flex items-center gap-2 text-primary">
-                              <span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                            <div key={idx} className="flex items-center gap-2 text-primary-dark">
+                              <ChevronRight className="h-4 w-4 text-primary-dark" />
                               <span>{detail}</span>
                             </div>
                           ))}
@@ -147,25 +178,7 @@ const Features = () => {
                     </div>
                   </div>
                 </div>
-              </button>
-            ))}
-          </div>
-
-          {/* Feature Image */}
-          <div className="lg:sticky lg:top-24">
-            <div className="relative w-full max-w-md mx-auto">
-              <div className="relative aspect-[9/16] rounded-xl overflow-hidden">
-                <AspectRatio ratio={9/16} className="bg-muted">
-                  <img
-                    src={featureImages[activeFeature]}
-                    alt={features[activeFeature].title}
-                    className="w-full h-full object-cover transition-all duration-300"
-                  />
-                  <div className={`absolute inset-0 bg-gradient-to-br ${features[activeFeature].color} mix-blend-overlay`}></div>
-                </AspectRatio>
-              </div>
-              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-primary rounded-xl transform rotate-12 -z-10"></div>
-              <div className="absolute -left-4 -top-4 w-16 h-16 bg-accent rounded-xl transform -rotate-12 -z-10"></div>
+              ))}
             </div>
           </div>
         </div>
@@ -175,4 +188,3 @@ const Features = () => {
 };
 
 export default Features;
-

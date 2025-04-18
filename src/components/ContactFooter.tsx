@@ -1,212 +1,97 @@
 
-import { useState } from 'react';
-import { Instagram, Youtube, Send } from 'lucide-react';
-import { Card, CardContent } from './ui/card';
+import { Mail, Phone, MapPin, Instagram, Facebook, Twitter, Youtube } from 'lucide-react';
 
 const ContactFooter = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError(null);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
-      
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 5000);
-    }, 1500);
-  };
-
   return (
-    <footer id="contact" className="bg-gray-50 pt-20 pb-10 relative overflow-hidden">
-      <div className="absolute inset-0 bg-pattern-dots opacity-30 z-0"></div>
-      
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full mb-4 font-medium tracking-wide">Let's Connect</span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Get In <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">Touch</span></h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Have questions about JustJam? We'd love to hear from you! Our team is always ready to help.
-          </p>
+    <>
+      <section id="contact" className="pt-20 pb-10 bg-gray-50">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In <span className="text-gradient">Touch</span></h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Have questions or feedback? We'd love to hear from you!
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow flex flex-col items-center text-center">
+              <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <Mail className="text-primary h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Email Us</h3>
+              <p className="text-gray-600 mb-4">For support and general inquiries</p>
+              <a href="mailto:support@justjam.app" className="text-primary hover:text-primary-dark font-medium">
+                support@justjam.app
+              </a>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow flex flex-col items-center text-center">
+              <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <Phone className="text-primary h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Call Us</h3>
+              <p className="text-gray-600 mb-4">Monday to Friday, 9am - 5pm</p>
+              <a href="tel:+1234567890" className="text-primary hover:text-primary-dark font-medium">
+                +1 (234) 567-890
+              </a>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow flex flex-col items-center text-center">
+              <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <MapPin className="text-primary h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
+              <p className="text-gray-600 mb-4">Find us at our headquarters</p>
+              <address className="not-italic text-primary hover:text-primary-dark font-medium">
+                123 Music Street, Melody City
+              </address>
+            </div>
+          </div>
+
+          <div className="flex justify-center space-x-4 mb-8">
+            <a href="#" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary-dark transition-colors">
+              <Facebook size={20} />
+            </a>
+            <a href="#" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary-dark transition-colors">
+              <Instagram size={20} />
+            </a>
+            <a href="#" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary-dark transition-colors">
+              <Twitter size={20} />
+            </a>
+            <a href="#" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary-dark transition-colors">
+              <Youtube size={20} />
+            </a>
+          </div>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
-          <Card className="col-span-2 shadow-lg bg-white/80 backdrop-blur-sm">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold mb-4">Send Us a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all"
-                    placeholder="John Doe"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all"
-                    placeholder="you@example.com"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Your Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={5}
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all resize-none"
-                    placeholder="How can we help you?"
-                    required
-                  ></textarea>
-                </div>
-                
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`
-                    w-full py-3 rounded-lg font-medium text-white transition-all
-                    ${isSubmitting ? 'bg-primary/70 cursor-not-allowed' : 'bg-primary hover:bg-primary-dark'}
-                  `}
-                >
-                  {isSubmitting ? 'Sending...' : isSuccess ? 'Message Sent!' : 'Send Message'}
-                </button>
-                
-                {error && (
-                  <div className="p-3 bg-red-50 text-red-700 rounded-lg text-sm">
-                    {error}
-                  </div>
-                )}
-                
-                {isSuccess && (
-                  <div className="p-3 bg-green-50 text-green-700 rounded-lg text-sm animate-fade-in">
-                    Your message has been sent successfully! We'll get back to you soon.
-                  </div>
-                )}
-                
-                <div className="text-xs text-gray-500 text-center mt-4">
-                  Messages will be sent to connect@justjam.app
-                </div>
-              </form>
-            </CardContent>
-          </Card>
+      </section>
+
+      <footer className="bg-primary-dark text-white py-8">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-6 md:mb-0">
+              <a href="/" className="text-2xl font-bold">Just<span className="text-accent">Jam</span></a>
+              <p className="mt-2 text-sm text-gray-300">Made by music lovers, for music lovers.</p>
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+              <a href="#features" className="text-gray-300 hover:text-white text-sm">Features</a>
+              <a href="#how-it-works" className="text-gray-300 hover:text-white text-sm">How It Works</a>
+              <a href="#testimonials" className="text-gray-300 hover:text-white text-sm">Testimonials</a>
+              <a href="#download" className="text-gray-300 hover:text-white text-sm">Download</a>
+              <a href="#contact" className="text-gray-300 hover:text-white text-sm">Contact</a>
+            </div>
+          </div>
           
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-xl shadow-lg">
-              <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-500">Email</h4>
-                    <a href="mailto:connect@justjam.app" className="text-primary-dark hover:text-primary transition-colors">
-                      connect@justjam.app
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div className="bg-white p-6 rounded-xl shadow-lg">
-              <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
-              <div className="flex flex-wrap gap-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white hover:opacity-90 transition-opacity">
-                  <Instagram size={20} />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-white hover:opacity-90 transition-opacity">
-                  <svg className="w-5 h-5" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M9.05,11.95c-2.6,0-4.7-2.1-4.7-4.7s2.1-4.7,4.7-4.7s4.7,2.1,4.7,4.7S11.65,11.95,9.05,11.95z M9.05,3.55 c-2,0-3.7,1.7-3.7,3.7s1.7,3.7,3.7,3.7s3.7-1.7,3.7-3.7S11.05,3.55,9.05,3.55z" />
-                    <path d="M6.25,13.85c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S9.55,13.85,6.25,13.85z M6.25,2.85 c-2.8,0-5,2.2-5,5s2.2,5,5,5s5-2.2,5-5S9.05,2.85,6.25,2.85z" />
-                  </svg>
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center text-white hover:opacity-90 transition-opacity">
-                  <Youtube size={20} />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-white hover:opacity-90 transition-opacity">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                  </svg>
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-dark to-primary flex items-center justify-center text-white hover:opacity-90 transition-opacity">
-                  <Send size={20} />
-                </a>
-              </div>
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+            <p>&copy; {new Date().getFullYear()} JustJam. All rights reserved.</p>
+            <div className="mt-2 flex justify-center gap-4">
+              <a href="#" className="hover:text-white">Privacy Policy</a>
+              <a href="#" className="hover:text-white">Terms of Service</a>
             </div>
           </div>
         </div>
-        
-        <div className="mt-20 text-center">
-          <div className="max-w-4xl mx-auto">
-            <img src="/lovable-uploads/62539fb8-ac19-4fa2-aba8-484bf926cfb5.png" alt="JustJam Logo" className="h-12 mx-auto mb-6" />
-            <p className="text-gray-500 mb-4">
-              JustJam - Your AI-powered music practice companion
-            </p>
-            <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-500 mb-6">
-              <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-primary transition-colors">Help Center</a>
-              <a href="#" className="hover:text-primary transition-colors">Pricing</a>
-            </div>
-            <p className="text-xs text-gray-400">
-              © {new Date().getFullYear()} JustJam App. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 
